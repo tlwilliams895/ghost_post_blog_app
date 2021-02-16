@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from GhostPost_App import views
 
 urlpatterns = [
+    path('', views.index_view, name="home"),
+    path('likes/<int:post_id>/', views.likes_view, name="likes"),
+    path('dislikes/<int:post_id>/', views.dislikes_view, name="dislikes"),
     path('admin/', admin.site.urls),
 ]

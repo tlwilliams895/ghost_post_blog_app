@@ -1,0 +1,12 @@
+{% for post in posts %}
+
+  <ul>
+    <li>{{ post.text }}</li>
+    <li>{{ post.likes }}</li>
+    <li>{{ post.dislikes }}</li>
+    <li>{{ post.created_at }}</li>
+    <li><a href="/likes/{{post.id}}">Like</a></li>
+    <li><a href="/dislikes/{{post.id}}">Dislike</a></li>
+  </ul>
+
+{% endfor %}
