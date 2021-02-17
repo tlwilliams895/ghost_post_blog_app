@@ -10,14 +10,18 @@
 
 <hr />
 
-<form action="" method="POST">
+{% for post in votes %}
+  <p>
 
-    {% csrf_token %} 
-    {{ votes }}
+    <p>{{ post.text }}</p>
+    <p>{{ post.vote_score }}</p>
+    <a href="/likes/{{ post.id }}">UPVOTE</a> || <a href="/dislikes/{{ post.id }}">DOWNVOTE</a>
+    <p>{{ post.created_at }}</p>
+    <hr />
+  
+  </p> 
 
-    <br />
-    <br />
-    <button type="submit">Sort Votes</button>
-    {% comment %} <input type="submit" value="Sort Votes" /> {% endcomment %}
+{% endfor %}
 
-</form>
+{% comment %} <button type="submit">Sort Votes</button> {% endcomment %}
+{% comment %} <input type="submit" value="Sort Votes" /> {% endcomment %}

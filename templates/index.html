@@ -11,11 +11,10 @@
 <hr />
 
 {% for post in posts %}
+<h2>{{ votes }}</h2>
 
   <p>
-    {{ boast }}
-    {{ roast }}
-    {% comment %} <p>Boast OR Roast</p> {% endcomment %}
+
     <p>{{ post.text }}</p>
     <a href="/likes/{{ post.id }}">UPVOTE</a> || <a href="/dislikes/{{ post.id }}">DOWNVOTE</a>
     {% comment %} 
