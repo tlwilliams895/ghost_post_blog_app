@@ -18,10 +18,10 @@
       <p><strong>Roast</strong></p>
     {% endif %}
 
-    <p>{{ post.text }}</p>
-    <a href="/likes/{{ post.id }}">UPVOTE</a> || <a href="/dislikes/{{ post.id }}">DOWNVOTE</a>
-    <p>{{ post.vote_score }}</p>
-    <p>{{ post.created_at }}</p>
+    <p>Post: {{ post.text }}</p>
+    {% comment %} <a href="/likes/{{ post.id }}">UPVOTE</a> || <a href="/dislikes/{{ post.id }}">DOWNVOTE</a> {% endcomment %}
+    <p>Votes: {{ post.vote_score }}</p>
+    <p>Date: {{ post.created_at }}</p>
     <hr />  
   </p>
 

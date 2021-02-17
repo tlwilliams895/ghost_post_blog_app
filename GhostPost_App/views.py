@@ -59,7 +59,7 @@ def roast_view(request):
 # Sort By Votes Detail View
 # Ability to sort content based on vote score; Use key lambda function
 def votes_view(request):
-    votes = sorted(GhostPostModel.objects.all(), key=lambda votes: votes.vote_score())[::1]
+    votes = sorted(GhostPostModel.objects.all(), key=lambda votes: votes.vote_score())[::-1]
 
     return render(request, 'votes.html', {
       'sort_votes': 'GhostPost - Sort By Votes',

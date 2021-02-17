@@ -14,7 +14,7 @@
 <p>
 
   <p>{{ post.text }}</p>
-  <a href="/likes/{{ post.id }}">UPVOTE</a> || <a href="/dislikes/{{ post.id }}">DOWNVOTE</a>
+  {% comment %} <a href="/likes/{{ post.id }}">UPVOTE</a> || <a href="/dislikes/{{ post.id }}">DOWNVOTE</a> {% endcomment %}
   <p>{{ post.vote_score }}</p>
   <p>{{ post.created_at }}</p>
   <hr />

@@ -20,14 +20,14 @@
       <p><strong>Roast</strong></p>
     {% endif %}
 
-    <p>{{ post.text }}</p>
+    <p>Post: {{ post.text }}</p>
     <a href="/likes/{{ post.id }}">UPVOTE</a> || <a href="/dislikes/{{ post.id }}">DOWNVOTE</a>
     {% comment %} 
       <p>{{ post.likes }}</p>
       <p>{{ post.dislikes }}</p> 
     {% endcomment %}
-    <p>{{ post.vote_score }}</p>
-    <p>{{ post.created_at }}</p>
+    <p>Votes: {{ post.vote_score }}</p>
+    <p>Date: {{ post.created_at }}</p>
     <hr />
   </p>
 
