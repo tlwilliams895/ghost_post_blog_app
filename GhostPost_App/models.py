@@ -22,4 +22,7 @@ class GhostPostModel(models.Model):
     # secret_key = models.CharField(max_length=10)
     
     def __str__(self):
-      return f"{self.text}"
+        return f"{self.text} | {self.created_at}"
+
+    def vote_score(self):
+        return self.likes - self.dislikes

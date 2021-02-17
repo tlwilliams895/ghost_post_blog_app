@@ -13,11 +13,16 @@
 {% for post in posts %}
 
   <p>
+    {{ boast }}
+    {{ roast }}
     {% comment %} <p>Boast OR Roast</p> {% endcomment %}
     <p>{{ post.text }}</p>
     <a href="/likes/{{ post.id }}">UPVOTE</a> || <a href="/dislikes/{{ post.id }}">DOWNVOTE</a>
-    <p>{{ post.likes }}</p>
-    <p>{{ post.dislikes }}</p>
+    {% comment %} 
+      <p>{{ post.likes }}</p>
+      <p>{{ post.dislikes }}</p> 
+    {% endcomment %}
+    <p>{{ post.vote_score }}</p>
     <p>{{ post.created_at }}</p>
     <hr />
   </p>

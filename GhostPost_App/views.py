@@ -58,11 +58,11 @@ def roast_view(request):
 # Sort By Votes Detail View
 # Ability to sort content based on vote score
 def votes_view(request):
-    votes = GhostPostModel.objects.order_by('-created_at')
+    vote_score = GhostPostModel.objects.order_by('-created_at')
     
     return render(request, 'votes.html', {
-      'sort_votes': 'Sort By Votes',
-      'votes': votes
+      'sort_votes': 'GhostPost - Sort By Votes',
+      'votes': vote_score
     })
 
 
