@@ -1,5 +1,5 @@
 <h1>
-  {{ roasts|default:"Roasts" }}
+  {{ roast_views|default:"Ghost Post - Roasts" }}
 </h1>
 
 <a href={% url "home" %}>Home</a>  ||
@@ -9,3 +9,5 @@
 <a href={% url "add_post" %}>Create Post</a>
 
 <hr />
+
+{{ roast }}
