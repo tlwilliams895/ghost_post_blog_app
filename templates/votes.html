@@ -1,5 +1,5 @@
 <h1>
-  {{ votes|default:"Sort By Votes" }}
+  {{ vote|default:"Sort By Votes" }}
 </h1>
 
 <a href={% url "home" %}>Home</a>  ||
@@ -9,3 +9,13 @@
 <a href={% url "add_post" %}>Create Post</a>
 
 <hr />
+
+<form action="" method="POST">
+
+    {% csrf_token %} 
+    {{ votes.as_p }}
+
+    <button type="submit">Submit</button>
+    {% comment %} <input type="submit" value="Sort Votes" /> {% endcomment %}
+
+</form>

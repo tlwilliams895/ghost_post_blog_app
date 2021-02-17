@@ -7,8 +7,8 @@ from django import forms
 class GhostPostForm(forms.Form):
     VOTE_CHOICES = [(True, 'Boast'), (False, 'Roast')]
     is_roast = forms.ChoiceField(
-        widget=forms.RadioSelect,
-        choices=VOTE_CHOICES
+        widget=forms.Select,
+        choices=VOTE_CHOICES,
     )
     # is_roast = forms.CharField(label="Is This a Roast or Boast?")
     text = forms.CharField(widget=forms.Textarea)
