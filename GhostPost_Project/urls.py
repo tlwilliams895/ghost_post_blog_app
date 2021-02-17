@@ -19,7 +19,11 @@ from GhostPost_App import views
 
 urlpatterns = [
     path('', views.index_view, name="home"),
+    path('boast/', views.boast_view, name="boast"),
+    path('roast/', views.roast_view, name="roast"),
     path('likes/<int:post_id>/', views.likes_view, name="likes"),
     path('dislikes/<int:post_id>/', views.dislikes_view, name="dislikes"),
+    path('sort_votes/', views.votes_view, name="votes"),
+    path('add_post/', views.add_post, name="add_post"),
     path('admin/', admin.site.urls),
 ]

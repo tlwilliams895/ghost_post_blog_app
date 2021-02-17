@@ -1,24 +1,17 @@
 from django import forms
 # from GhostPost_App.models import GhostPostModel
 
-# GhostPost Form --
-"""
-class GhostPostModel(models.Model):
-  text = models.CharField(max_length=280)
-  likes = models.IntegerField(default=0)
-  dislikes = models.IntegerField(default=0)
-  created_at = models.DateTimeField(default=timezone.now)
-  
-  def __str__(self):
-    return f"{self.text}"
-"""
-
 
 # Create your FORMS here.
+# Django Resource: https://docs.djangoproject.com/en/3.0/ref/forms/widgets/
 class GhostPostForm(forms.Form):
-    boast = forms.BooleanField()
-    roast = forms.BooleanField()
+    VOTE_CHOICES = [(True, 'Boast'), (False, 'Roast')]
+    is_roast = forms.ChoiceField(
+        widget=forms.RadioSelect,
+        choices=VOTE_CHOICES
+    )
+    # is_roast = forms.CharField(label="Is This a Roast or Boast?")
     text = forms.CharField(widget=forms.Textarea)
-    likes = forms.IntegerField()
-    dislikes = forms.IntegerField()
-    created_at = forms.DateTimeField(widget=forms.TimeField)
+    # likes = forms.IntegerField()
+    # dislikes = forms.IntegerField()
+    # created_at = forms.DateTimeField(widget=forms.TimeField)

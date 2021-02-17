@@ -1,0 +1,11 @@
+<h1>
+  {{ roasts|default:"Roasts" }}
+</h1>
+
+<a href={% url "home" %}>Home</a>  ||
+<a href={% url "votes" %}>Sort By Votes</a> ||
+<a href={% url "boast" %}>Boasts</a>  ||
+<a href={% url "roast" %}>Roasts</a>  ||
+<a href={% url "add_post" %}>Create Post</a>
+
+<hr />
