@@ -9,7 +9,7 @@ def index_view(request):
     posts = GhostPostModel.objects.order_by('-created_at')
     return render(request, 'index.html', {
       'home': 'Ghost Post Home',
-      'votes': 'Boast or Roast',
+      'votes': 'Is this a Boast or Roast?',
       'posts': posts
     })
 
@@ -21,7 +21,7 @@ def likes_view(request, post_id):
     post = GhostPostModel.objects.filter(id=post_id).first()
     post.likes += 1
     post.save()
-    return redirect('/')
+    return redirect('/') # Where to redirect properly
 
 
 # DownVotes/Dislikes Detail View --
@@ -31,13 +31,13 @@ def dislikes_view(request, post_id):
     post = GhostPostModel.objects.filter(id=post_id).first()
     post.dislikes += 1
     post.save()
-    return redirect('/')
+    return redirect('/') # Where to redirect properly
 
 
 # Boast View Detail
 # Filters the content by boasts and sorted by time submitted
 def boast_view(request):
-    boast = GhostPostModel.objects.filter('-id').order_by('-created_at')
+    boast = GhostPostModel.objects.filter(is_roast=True).order_by('-created_at')
 
     return render(request, 'boast.html', {
       'boast_view': 'Ghost Post - Boasts',
@@ -48,7 +48,7 @@ def boast_view(request):
 # Roast View Detail
 # Filters the content by roasts and sorted by time submitted
 def roast_view(request):
-    roast = GhostPostModel.objects.filter('-id').order_by('-created_at')
+    roast = GhostPostModel.objects.filter(is_roast=False).order_by('-created_at')
 
     return render(request, 'roast.html', {
       'roast_view': 'Ghost Post - Roasts',
@@ -57,7 +57,7 @@ def roast_view(request):
 
 
 # Sort By Votes Detail View
-# Ability to sort content based on vote score
+# Ability to sort content based on vote score; Use key lambda function
 def votes_view(request):
     votes = sorted(GhostPostModel.objects.all(), key=lambda votes: votes.vote_score())[::1]
 

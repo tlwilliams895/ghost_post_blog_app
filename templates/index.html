@@ -14,6 +14,11 @@
 <h2>{{ votes }}</h2>
 
   <p>
+    {% if post.is_roast == True %}
+      <p><strong>Boast</strong></p>
+    {% else %}
+      <p><strong>Roast</strong></p>
+    {% endif %}
 
     <p>{{ post.text }}</p>
     <a href="/likes/{{ post.id }}">UPVOTE</a> || <a href="/dislikes/{{ post.id }}">DOWNVOTE</a>

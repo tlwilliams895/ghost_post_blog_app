@@ -10,4 +10,14 @@
 
 <hr />
 
-{{ boast }}
+{% for post in boast %}
+<p>
+
+  <p>{{ post.text }}</p>
+  <a href="/likes/{{ post.id }}">UPVOTE</a> || <a href="/dislikes/{{ post.id }}">DOWNVOTE</a>
+  <p>{{ post.vote_score }}</p>
+  <p>{{ post.created_at }}</p>
+  <hr />
+
+</p>
+{% endfor %}

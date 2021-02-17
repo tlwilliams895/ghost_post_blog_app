@@ -12,16 +12,17 @@
 
 {% for post in votes %}
   <p>
+    {% if post.is_roast == True %}
+      <p><strong>Boast</strong></p>
+    {% else %}
+      <p><strong>Roast</strong></p>
+    {% endif %}
 
     <p>{{ post.text }}</p>
-    <p>{{ post.vote_score }}</p>
     <a href="/likes/{{ post.id }}">UPVOTE</a> || <a href="/dislikes/{{ post.id }}">DOWNVOTE</a>
+    <p>{{ post.vote_score }}</p>
     <p>{{ post.created_at }}</p>
-    <hr />
-  
-  </p> 
+    <hr />  
+  </p>
 
 {% endfor %}
-
-{% comment %} <button type="submit">Sort Votes</button> {% endcomment %}
-{% comment %} <input type="submit" value="Sort Votes" /> {% endcomment %}
