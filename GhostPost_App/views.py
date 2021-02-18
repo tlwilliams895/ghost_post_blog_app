@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, reverse, HttpResponseRedirect
 
 from GhostPost_App.models import GhostPostModel
 from GhostPost_App.forms import GhostPostForm
@@ -21,7 +21,9 @@ def likes_view(request, post_id):
     post = GhostPostModel.objects.filter(id=post_id).first()
     post.likes += 1
     post.save()
-    return redirect('/') # Where to redirect properly
+    # Resource: StackOverflow
+    # https://stackoverflow.com/questions/14010177/how-do-i-use-request-meta-gethttp-referer-within-template
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
 # DownVotes/Dislikes Detail View --
@@ -31,7 +33,7 @@ def dislikes_view(request, post_id):
     post = GhostPostModel.objects.filter(id=post_id).first()
     post.dislikes += 1
     post.save()
-    return redirect('/') # Where to redirect properly
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
 # Boast View Detail
@@ -78,6 +80,7 @@ def add_post(request):
               is_roast=data['is_roast'],
               text=data['text']
             )
+            return HttpResponseRedirect(reverse('home'))
 
     form = GhostPostForm()
     return render(request, 'post_form.html', {
