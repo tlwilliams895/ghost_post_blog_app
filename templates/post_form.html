@@ -1,3 +1,5 @@
+{% load bootstrap4 %}
+
 <h1>
   {{ add_posts|default:"Create GhostPost" }}
 </h1>
@@ -10,12 +12,17 @@
 
 <hr />
 
-<form action="" method="POST">
+<form action="" method="POST" class="form">
 
     {% csrf_token %}
     {{ post_form.as_p }}
+    {% bootstrap_form form layout='inline'%}
 
-    <button type="submit">Submit</button>
+    {% buttons %}
+    <button type="submit" class="btn btn-primary">
+      Submit
+    </button>
+    {% endbuttons %}
     {% comment %} <input type="submit" value="Create Post" /> {% endcomment %}
 
 </form>
