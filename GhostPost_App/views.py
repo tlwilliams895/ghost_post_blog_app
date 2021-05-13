@@ -1,4 +1,7 @@
 from django.shortcuts import render, reverse, HttpResponseRedirect
+from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
+import git
 
 from GhostPost_App.models import GhostPostModel
 from GhostPost_App.forms import GhostPostForm
@@ -86,3 +89,23 @@ def add_post(request):
     return render(request, 'post_form.html', {
       'post_form': form
     })
+
+
+# Deploy Server Function View
+# This view function will receive GitHub updates and update the code on the server.
+@csrf_exempt
+def ghostpost_update(request):
+    if request.method == "POST":
+        '''
+        pass the path of the diectory where your project will be 
+        stored on PythonAnywhere in the git.Repo() as parameter.
+        Here the name of my directory is "test.pythonanywhere.com"
+        '''
+        repo = git.Repo("test.pythonanywhere.com/") 
+        origin = repo.remotes.origin
+
+        origin.pull()
+
+        return HttpResponse("Updated code on PythonAnywhere")
+    else:
+        return HttpResponse("Couldn't update the code on PythonAnywhere")

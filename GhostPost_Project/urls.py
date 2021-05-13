@@ -25,5 +25,6 @@ urlpatterns = [
     path('dislikes/<int:post_id>/', views.dislikes_view, name="dislikes"),
     path('sort_votes/', views.votes_view, name="votes"),
     path('add_post/', views.add_post, name="add_post"),
+    path('update_server/', views.ghostpost_update, name="update"),
     path('admin/', admin.site.urls),
 ]

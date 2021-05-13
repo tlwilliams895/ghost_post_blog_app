@@ -11,7 +11,9 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
-import os
+
+# import os.environ
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,13 +23,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get(
-    'DJANGO_SECRET',
-    '#kp17poxo=(5369h7#&guslqz&7f&520!88vw#=7%_*3no!mu='
-)
+# Thanks DjangoCentral for the tutorial on .env files!
+# https://djangocentral.com/environment-variables-in-django/
+
+env = environ.Env()
+# reading .env file
+environ.Env.read_env()
+
+# Raises django's ImproperlyConfigured exception if SECRET_KEY not
+# in os.environ
+SECRET_KEY = env("SECRET_KEY", default="unsafe-secret-key")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env('DEBUG', default=False, cast=bool)
+TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = ["*"]
 
@@ -36,7 +45,7 @@ ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
     'GhostPost_App',
-    'bootstrap4'
+    'bootstrap4',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -81,8 +90,12 @@ WSGI_APPLICATION = 'GhostPost_Project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": env("DATABASE_NAME"),
+        "USER": env("DATABASE_USER"),
+        "PASSWORD": env("DATABASE_PASSWORD"),
+        "HOST": env("DATABASE_HOST"),
+        "PORT": env("DATABASE_PORT"),
     }
 }
 

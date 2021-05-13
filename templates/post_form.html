@@ -15,8 +15,8 @@
 <form action="" method="POST" class="form">
 
     {% csrf_token %}
+    {% comment %} {% bootstrap_form form layout='inline' %} {% endcomment %}
     {{ post_form.as_p }}
-    {% bootstrap_form form layout='inline'%}
 
     {% buttons %}
     <button type="submit" class="btn btn-primary">

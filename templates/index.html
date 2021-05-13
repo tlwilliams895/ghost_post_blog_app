@@ -1,5 +1,6 @@
+{% extends "base.html" %}
 <h1>
-  {{ homes|default:"GhostPost Home" }}
+  {{ homes|default:"GhostPost👻Home" }}
 </h1>
 
 <a href={% url "home" %}>Home</a>  ||
@@ -31,4 +32,4 @@
     <hr />
   </p>
 
-{% endfor %}
+{% endfor %}  
