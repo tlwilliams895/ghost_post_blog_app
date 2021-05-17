@@ -91,6 +91,26 @@ def add_post(request):
     })
 
 
+# server_error
+def error_500(request, exception=None):
+    return render(request, "500.html", {}, status=500)
+
+
+# page_not_found
+def error_404(request, exception):
+    return render(request, "404.html", {}, status=404)
+
+
+# permission_denied
+def error_403(request, exception=None):
+    return render(request, "403.html", {}, status=403)
+
+
+# bad_request
+def error_400(request, exception=None):
+    return render(request, "400.html", {}, status=400)
+
+
 # Deploy Server Function View
 # This view function will receive GitHub updates and update the code on the server.
 @csrf_exempt
