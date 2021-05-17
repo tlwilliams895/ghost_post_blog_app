@@ -27,7 +27,7 @@
         {% endif %}
 
         <p>Post: {{ post.text }}</p>
-        <a href="/likes/{{ post.id }}">UPVOTE</a> || <a href="/dislikes/{{ post.id }}">DOWNVOTE</a>
+        <button><a href="/likes/{{ post.id }}">↑ UPVOTE</a></button> || <button><a href="/dislikes/{{ post.id }}">↓ DOWNVOTE</a></button>
         {% comment %} 
           <p>{{ post.likes }}</p>
           <p>{{ post.dislikes }}</p> 
