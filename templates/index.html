@@ -2,9 +2,9 @@
 {% load bootstrap4 %}
 {% block content %}
 
-  <h1>
+  <h3>
     {{ homes|default:"GhostPost👻Home" }}
-  </h1>
+  </h3>
 
 <!--
   <a href={% url "home" %}>Home</a>  ||
@@ -12,12 +12,12 @@
   <a href={% url "boast" %}>Boasts</a>  ||
   <a href={% url "roast" %}>Roasts</a>  ||
   <a href={% url "add_post" %}>Create Post</a>
-  <hr />
  -->
+  <hr />
 
   {% for post in posts %}
 
-    <h2>{{ votes }}</h2>
+    <h4>{{ votes }}</h4>
 
       <p>
         {% if post.is_roast == True %}
