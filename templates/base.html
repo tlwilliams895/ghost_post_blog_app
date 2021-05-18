@@ -1,14 +1,14 @@
 {% load static %}
 {# Resource: https://django-bootstrap4.readthedocs.io/en/latest/quickstart.html #}
 {# Load the tag library #}
-{% load bootstrap4 %}
+{% comment %} {% load bootstrap4 %} {% endcomment %}
 
 {# Load CSS and JavaScript #}
-{% bootstrap_css %}
-{% bootstrap_javascript jquery='full' %}
+{% comment %} {% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %} {% endcomment %}
 
 {# Display django.contrib.messages as Bootstrap alerts #}
-{% bootstrap_messages %}
+{% comment %} {% bootstrap_messages %} {% endcomment %}
 
 <!DOCTYPE html>
 <html lang="en">

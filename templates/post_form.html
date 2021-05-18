@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load bootstrap4 %}
+{% comment %} {% load bootstrap4 %} {% endcomment %}
 {% block content %}
 
   <h3>
@@ -22,11 +22,11 @@
       {% comment %} {% bootstrap_form form layout='inline' %} {% endcomment %}
       {{ post_form.as_p }}
 
-      {% buttons %}
-      <button type="submit" class="btn btn-primary">
-        Submit
-      </button>
-      {% endbuttons %}
+      <!--{% buttons %}-->
+        <button type="submit" class="btn btn-primary">
+          Submit
+        </button>
+      <!--{% endbuttons %}-->
       {% comment %} <input type="submit" value="Create Post" /> {% endcomment %}
 
   </form>
