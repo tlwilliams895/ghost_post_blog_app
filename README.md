@@ -38,9 +38,3 @@ Hints:
     *   localhost:8000/posts/abcdef
 *   The one that ends in an ID should display a "public" version of the detail page; just the post itself. The one that ends in the "secret key" should be the same content, but with an additional button that allows you to delete the content. (Hint: have the button link to a different view that can delete a post by ID)
 *   <span>When the object is created, the magic string should be passed back to the front end in a link and given to the user; something like "Keep this link secure; this is your private link for managing this post!"</span>
-
-#### **Submission**
-
-Submit a link to your repo.
-
-<pre>https://github.com/ka-se-q4/ghostpost-&ltgithub_username&gt</pre>
