@@ -3,7 +3,7 @@
 
 A front end is necessary to make this work, though it doesn't have to be pretty -- invest as much time as you want into it (assuming your application already has the requested features 🤓).
 
-#### **Your Task**
+#### **Project Tasks:**
 
 Create a Django application with the following features.
 
